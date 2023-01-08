@@ -25,9 +25,9 @@ const Header = () => {
             </p>
             <div className="basis-1/3">
               <div className="flex flex-col justify-start pr-4">
-                <span className="line-through">10,000</span>
-                <h2 className="font-bold text-xl">
-                  5,000<span className="text-3xl">৳</span>
+                <span className="line-through">১০,০০০</span>
+                <h2 className="font-bold text-3xl">
+                  ৫০০০<span className="text-3xl">৳</span>
                 </h2>
               </div>
             </div>
