@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
-import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [icon, setIcon] = useState(true);
 
-  const [user] = useAuthState(auth);
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
-  // signout
-  const logout = () => {
-    signOut(auth);
-  };
   return (
     <div>
       {/* mobile navbar */}
@@ -42,7 +30,14 @@ const Navbar = () => {
           } flex-col bg-red-200 rounded-md`}
         >
           <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
+          <div>
+            <Link
+              to="/buy"
+              className="bg-[#1e0f12] hover:bg-red-300 hover:text-black text-white font-semibold block px-10 py-2 rounded-lg"
+            >
+              Buy
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -53,22 +48,12 @@ const Navbar = () => {
         </Link>
         <div className="flex justify-around md:basis-1/3 font-semibold ">
           <Link to="/">Home</Link>
-
-          {user ? (
-            <button className="font-semibold" onClick={logout}>
-              Sign Out
-            </button>
-          ) : (
-            <div>
-              <Link to="/login" className="font-semibold mr-4">
-                Login
-              </Link>
-
-              <Link to="/signup" className="font-semibold">
-                Register
-              </Link>
-            </div>
-          )}
+          <Link
+            to="/buy"
+            className="bg-[#1e0f12] hover:bg-red-300 hover:text-black text-white font-semibold px-10 py-2 rounded-lg"
+          >
+            Buy
+          </Link>
         </div>
       </div>
     </div>
